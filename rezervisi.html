@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Bioskop Sutjeska - Rezervacija</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"
+      integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="navbar-omot">
+          <div class="logo">
+            <img src="img/logoBlack.png" alt="logoKajak" />
+          </div>
+          <div id="menu">
+            <i id="otvarac" class="fa-solid fa-bars"></i>
+            <ul id="menuId" class="nava">
+              <li><a href="./index.html">Početna</a></li>
+              <li><a href="./repertoar.html">Repertoar</a></li>
+              <li><a href="./kontakt.html">Kontakt</a></li>
+              <li><a href="./rezervisi.html">Rezervisanje</a></li>
+              <li><a href="./galerija.html">Galerija</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="rezervisanje sekcija" id="rezervisi">
+      <div class="kontent">
+        <div class="box">
+          <h2>Rezervišite već danas</h2>
+          <form onsubmit="event.preventDefault(); validateForm()">
+            <div class="input-omot">
+              <input
+                type="text"
+                class="custom-input"
+                size="40"
+                id="ime"
+                name="ime"
+                placeholder="Ime i prezime"
+                required
+              />
+            </div>
+            <div class="input-omot">
+              <input
+                type="email"
+                class="custom-input"
+                size="40"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <div class="error-node"></div>
+            </div>
+            <div class="input-omot">
+              <input
+                type="date"
+                class="custom-input"
+                id="datum"
+                name="datum"
+                placeholder="Datum"
+                required
+              />
+            </div>
+            <div class="input-omot">
+              <input
+                type="text"
+                class="custom-input"
+                id="film"
+                name="film"
+                placeholder="Film"
+                required
+              />
+            </div>
+            <div class="input-omot">
+              <h4>Izaberi broj karata:</h4>
+              <div class="radio-opcije">
+                <label for="jedna">
+                  <input
+                    type="radio"
+                    name="brojKarata"
+                    id="jedna"
+                    value="jedna"
+                    checked
+                  />
+                  1</label
+                >
+                <label for="dve">
+                  <input
+                    type="radio"
+                    name="brojKarata"
+                    id="dve"
+                    value="dve"
+                  />
+                  2</label
+                >
+                <label for="tri">
+                  <input
+                    type="radio"
+                    name="brojKarata"
+                    id="tri"
+                    value="tri"
+                  />
+                  3</label
+                >
+              </div>
+            </div>
+            <div class="input-omot">
+              <button class="custom-input" class="btn2">Rezerviši</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div id="reservation-modal" class="modal jquery">
+      <div class="modal-kontent">
+        <div class="modal-header">Uspešno ste rezervisali karte za film</div>
+        <div class="modal-body">
+          <p>Poslali ste nam sledeće podatke:</p>
+          <p class="podaci">Ime i prezime: <span id="modal-ime"></span></p>
+
+          <p class="podaci">Email: <span id="modal-email"></span></p>
+
+          <p class="podaci">Datum: <span id="modal-datum"></span></p>
+          <p class="podaci">Film: <span id="modal-film"></span></p>
+          <p class="podaci">Broj karata: <span id="modal-karte"></span></p>
+        </div>
+        <div class="modal-footer">
+          <div id="modal-dugme" onclick="iskljuciModal()" class="custom-dugme">
+            Ok
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/rezervisi.js"></script>
+  </body>
+</html>
